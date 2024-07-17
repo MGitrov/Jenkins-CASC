@@ -1,0 +1,14 @@
+jenkins:
+  securityRealm:
+    local: # Indicating user authentication is managed locally (within Jenkins' own database).
+      allowsSignup: false # Only pre-defined users can log in.
+      users:
+        - id: "maxim_petrov"
+          password: "mypassword"
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false # Logged-in users can perform any action, while anonymous users are not allowed to read.
+
+unclassified:
+  location:
+    url: http://localhost:8080/

@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  jenkins:
+    build: .
+    container_name: jenkins-con
+    ports:
+      - "8080:8080" # Port mapping for the Jenkins web UI.
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - ./jcasc:/var/jenkins_home/casc_configs # Using local "jcasc" dir for mounting.
+    environment:
+      - CASC_JENKINS_CONFIG=/var/jenkins_home/casc_configs/jenkins.yaml # Setting the environment variable to point to the JCasC configuration file.
+      - JAVA_OPTS=-Djenkins.install.runSetupWizard=false # Disabling the Jenkins setup wizard on first startup because of the configurations from the "jenkins.yaml" file.
+
+volumes:
+  jenkins_home: # Defining a named volume for persisting Jenkins home directory data.
