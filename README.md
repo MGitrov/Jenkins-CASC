@@ -7,7 +7,7 @@ A Jenkins server using Docker and Jenkins Configuration as Code (JCasC). The set
 
 # Directory Structure
 ```
-jenkins-docker/
+Jenkins-CASC/
 ├── Dockerfile
 ├── docker-compose.yml
 ├── plugins.txt
